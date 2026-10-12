@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "tsx watch --env-file-if-exists=../../.env src/server.ts",
     "start": "node --env-file-if-exists=../../.env dist/server.js",
-    "build": "tsup src/server.ts src/db/migrate.ts src/db/seed.ts --format esm --target node22 --clean --no-splitting --noExternal @clinica/shared",
+    "build": "tsup",
     "typecheck": "tsc -p tsconfig.json",
     "test": "vitest run",
     "db:generate": "drizzle-kit generate",

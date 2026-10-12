@@ -101,6 +101,7 @@ function ShortcutsDialog({ open, onOpenChange }: { open: boolean; onOpenChange: 
     [<><Kbd>Ctrl</Kbd> + <Kbd>K</Kbd></>, "Buscar telas e clientes"],
     [<Kbd>/</Kbd>, "Ir para a busca da lista atual"],
     [<Kbd>N</Kbd>, "Novo cadastro na lista atual"],
+    [<Kbd>E</Kbd>, "Editar o cadastro aberto"],
     [<><Kbd>Ctrl</Kbd> + <Kbd>Enter</Kbd></>, "Salvar formulário"],
     [<Kbd>Esc</Kbd>, "Fechar janela ou tour"],
     [<Kbd>?</Kbd>, "Mostrar esta lista"],

@@ -23,6 +23,9 @@ type PendingChange =
   | { kind: "plan"; planId: string; title: string; description: string }
   | { kind: "module"; module: ModuleKey; status: ModuleStatus; title: string; description: string };
 
+/** Traduz códigos de situação (conta ou módulo) para o rótulo exibido. */
+const label = (v: string | null) => (v ? (TENANT_STATUS[v]?.label ?? MODULE_STATUS_LABEL[v as ModuleStatus] ?? v) : "");
+
 export function TenantDetailPage() {
   const { id = "" } = useParams();
   const qc = useQueryClient();
@@ -194,8 +197,8 @@ export function TenantDetailPage() {
             <li key={h.id} className="flex flex-col gap-0.5 px-4 py-2.5 sm:flex-row sm:justify-between sm:px-5">
               <span>
                 <span className="font-medium">{{ created: "Criação", status: "Situação", plan: "Plano", module: "Módulo" }[h.kind] ?? h.kind}</span>
-                {h.subject && ` ${MODULES[h.subject as ModuleKey]?.name ?? h.subject}`}: {h.fromValue && `${h.fromValue} → `}
-                {h.toValue}
+                {h.subject && ` ${MODULES[h.subject as ModuleKey]?.name ?? h.subject}`}: {h.fromValue && `${label(h.fromValue)} → `}
+                {label(h.toValue)}
                 {h.reason && <span className="text-ink-subtle"> — {h.reason}</span>}
               </span>
               <span className="text-ink-subtle">

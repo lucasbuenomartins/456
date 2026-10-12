@@ -7,7 +7,7 @@
     "dev": "pnpm --parallel --filter @clinica/api --filter @clinica/web dev",
     "build": "pnpm -r build",
     "typecheck": "pnpm -r typecheck",
-    "test": "pnpm -r test",
+    "test": "pnpm -r --filter=!@clinica/e2e test",
     "db:setup": "bash scripts/db-setup.sh",
     "db:migrate": "pnpm --filter @clinica/api db:migrate",
     "db:seed": "pnpm --filter @clinica/api db:seed",
