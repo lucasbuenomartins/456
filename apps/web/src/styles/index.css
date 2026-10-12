@@ -1,0 +1,107 @@
+@import "@fontsource-variable/inter";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Tokens do design system. Canais RGB para permitir opacidade no Tailwind (bg-primary/10).
+ * Contraste mínimo verificado (WCAG AA) para texto sobre surface:
+ *   ink 16:1 · ink-muted 7.4:1 · ink-subtle 4.8:1 · primary 5.5:1 · danger 6.5:1
+ */
+@layer base {
+  :root {
+    --bg: 248 247 245;
+    --surface: 255 255 255;
+    --surface-muted: 243 241 238;
+    --surface-sunken: 236 233 229;
+    --border: 226 222 217;
+    --border-strong: 200 194 187;
+
+    --ink: 28 25 23;
+    --ink-muted: 82 77 72;
+    --ink-subtle: 112 106 100;
+    --ink-inverse: 255 255 255;
+
+    --primary: 15 118 110;
+    --primary-hover: 17 94 89;
+    --primary-soft: 230 246 243;
+    --primary-ink: 255 255 255;
+
+    --accent: 190 24 93;
+    --accent-soft: 253 236 243;
+
+    --success: 21 128 61;
+    --success-soft: 232 247 237;
+    --warning: 161 82 7;
+    --warning-soft: 254 243 222;
+    --danger: 185 28 28;
+    --danger-soft: 253 235 235;
+    --info: 29 78 216;
+    --info-soft: 232 240 254;
+
+    color-scheme: light;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-bg text-ink font-sans antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  /* Foco sempre visível para quem navega pelo teclado. */
+  :focus-visible {
+    outline: 3px solid rgb(var(--primary) / 0.55);
+    outline-offset: 2px;
+  }
+
+  h1, h2, h3 {
+    @apply text-ink;
+    letter-spacing: -0.01em;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-xl border border-border bg-surface shadow-card;
+  }
+  .sr-only-focusable:not(:focus) {
+    @apply sr-only;
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in { animation: fade-in 150ms ease-out; }
+.animate-slide-up { animation: slide-up 180ms ease-out; }
+
+/* Destaque do elemento apresentado pelo tour (não bloqueia cliques). */
+.tour-spotlight {
+  position: fixed;
+  pointer-events: none;
+  border-radius: 12px;
+  box-shadow: 0 0 0 3px rgb(var(--primary)), 0 0 0 9999px rgb(28 25 23 / 0.28);
+  transition: all 180ms ease-out;
+  z-index: 60;
+}

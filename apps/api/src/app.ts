@@ -10,6 +10,7 @@ import { loadPlatformContext, type PlatformContext } from "./modules/admin/platf
 import { adminRoutes } from "./modules/admin/routes";
 import { authRoutes, SESSION_COOKIE, loadBareSession, type BareSession } from "./modules/auth/routes";
 import { clientRoutes } from "./modules/clients/routes";
+import { dashboardRoutes } from "./modules/dashboard/routes";
 import { meRoutes } from "./modules/me/routes";
 import { newsRoutes } from "./modules/news/routes";
 import { settingsRoutes } from "./modules/settings/routes";
@@ -130,6 +131,9 @@ export async function buildApp(opts: { logger?: boolean } = {}): Promise<Fastify
 
     const ctx = await loadClinicContext(token);
     if (!ctx) {
+      // Sessão válida, mas sem clínica escolhida (ou a escolhida deixou de estar disponível).
+      const bare = await loadBareSession(token);
+      if (bare) throw new AppError(409, "tenant_required", "Escolha a clínica para continuar.");
       reply.clearCookie(SESSION_COOKIE, { path: "/" });
       throw unauthorized();
     }
@@ -167,6 +171,7 @@ export async function buildApp(opts: { logger?: boolean } = {}): Promise<Fastify
   await app.register(authRoutes);
   await app.register(meRoutes);
   await app.register(clientRoutes);
+  await app.register(dashboardRoutes);
   await app.register(settingsRoutes);
   await app.register(tourRoutes);
   await app.register(newsRoutes);

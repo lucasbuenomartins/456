@@ -22,6 +22,13 @@
       "when": 1791843583999,
       "tag": "0002_invite_owner",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1791843584999,
+      "tag": "0003_tour_reset",
+      "breakpoints": true
     }
   ]
 }

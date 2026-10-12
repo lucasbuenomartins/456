@@ -1,7 +1,9 @@
 import { tourEventSchema } from "@clinica/shared";
+import { and, eq } from "drizzle-orm";
 import type { FastifyInstance } from "fastify";
 import { ctxOf, platformOf } from "../../app";
 import { adminDb, withTenant } from "../../db/client";
+import { tourProgress } from "../../db/schema";
 import { parse } from "../../lib/validate";
 import { listTourState, recordTourEvent } from "./service";
 
@@ -19,6 +21,21 @@ export async function tourRoutes(app: FastifyInstance) {
     await withTenant({ tenantId: ctx.tenant.id, userId: ctx.user.id }, (tx) =>
       recordTourEvent(tx, "clinic", ctx.user.id, req.params.tourId, body.version, body.status),
     );
+    return { ok: true };
+  });
+
+  /** Reativa todos os tours da pessoa (Meu perfil → Rever explicações das telas). */
+  app.post("/api/tours/reset", { config: { allowReadOnly: true } }, async (req) => {
+    const ctx = ctxOf(req);
+    await withTenant({ tenantId: ctx.tenant.id, userId: ctx.user.id }, (tx) =>
+      tx.delete(tourProgress).where(and(eq(tourProgress.realm, "clinic"), eq(tourProgress.userId, ctx.user.id))),
+    );
+    return { ok: true };
+  });
+
+  app.post("/api/admin/tours/reset", { config: { realm: "platform" } }, async (req) => {
+    const p = platformOf(req);
+    await adminDb.delete(tourProgress).where(and(eq(tourProgress.realm, "platform"), eq(tourProgress.userId, p.user.id)));
     return { ok: true };
   });
 

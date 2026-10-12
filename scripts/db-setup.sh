@@ -22,10 +22,10 @@ END
 \$\$;
 SQL
 
-for db in clinica clinica_test; do
+for db in clinica clinica_test clinica_e2e; do
   if ! $PSQL -tAc "SELECT 1 FROM pg_database WHERE datname = '$db'" | grep -q 1; then
     $PSQL -c "CREATE DATABASE $db OWNER clinica_owner"
   fi
   $PSQL -d "$db" -c "CREATE EXTENSION IF NOT EXISTS pg_trgm" -c "GRANT CONNECT ON DATABASE $db TO clinica_app"
 done
-echo "Bancos prontos: clinica e clinica_test"
+echo "Bancos prontos: clinica, clinica_test e clinica_e2e"

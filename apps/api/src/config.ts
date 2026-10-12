@@ -25,5 +25,5 @@ export const config = {
   platformSessionHours: 12,
   inviteDays: 7,
   /** Tentativas por minuto nas rotas de login e convite (por IP). */
-  authRateLimit: isTest ? 10_000 : 10,
+  authRateLimit: Number(env.AUTH_RATE_LIMIT ?? (isTest ? 10_000 : 10)),
 };
