@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight } from "../../ui/icons";
 import type { ReactNode } from "react";
 import { Link, NavLink, Navigate, Route, Routes, useLocation } from "react-router";
 import { Guard } from "../../app/Guard";

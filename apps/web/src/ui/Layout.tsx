@@ -1,6 +1,6 @@
 import * as RTabs from "@radix-ui/react-tabs";
 import { clsx } from "clsx";
-import { ChevronRight, CloudOff, Cloud, Loader2, Search, X } from "lucide-react";
+import { ChevronRight, CloudOff, Cloud, Loader2, Search, X } from "./icons";
 import { forwardRef, type InputHTMLAttributes, type ReactNode } from "react";
 import { Link } from "react-router";
 import { relativeTime } from "../lib/format";

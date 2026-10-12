@@ -1,5 +1,5 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { Building2, ChevronRight } from "lucide-react";
+import { Building2, ChevronRight } from "../../ui/icons";
 import { useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router";
 import { ApiError, api } from "../../lib/api";

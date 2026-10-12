@@ -1,7 +1,7 @@
 import * as RDialog from "@radix-ui/react-dialog";
 import * as RMenu from "@radix-ui/react-dropdown-menu";
 import { clsx } from "clsx";
-import { X } from "lucide-react";
+import { X } from "./icons";
 import { useState, type ReactNode } from "react";
 import { Button } from "./Button";
 
@@ -31,12 +31,12 @@ export function Dialog({
   return (
     <RDialog.Root open={open} onOpenChange={onOpenChange}>
       <RDialog.Portal>
-        <RDialog.Overlay className="fixed inset-0 z-[70] bg-ink/40 animate-fade-in" />
+        <RDialog.Overlay className="fixed inset-0 z-[70] bg-[rgb(var(--overlay)/0.45)] animate-fade-in" />
         <RDialog.Content
           data-tour={tourId}
           className={clsx(
             "fixed z-[71] flex max-h-[92dvh] flex-col bg-surface shadow-pop animate-slide-up focus:outline-none",
-            "inset-x-0 bottom-0 rounded-t-2xl sm:inset-auto sm:left-1/2 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 sm:rounded-2xl",
+            "inset-x-0 bottom-0 rounded-t-3xl sm:inset-auto sm:left-1/2 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 sm:rounded-3xl",
             { sm: "sm:w-[420px]", md: "sm:w-[560px]", lg: "sm:w-[760px]" }[size],
           )}
         >

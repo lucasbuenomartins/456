@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import { Loader2 } from "lucide-react";
+import { Loader2 } from "./icons";
 import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from "react";
 import { Link, type LinkProps } from "react-router";
 
@@ -7,7 +7,7 @@ export type ButtonVariant = "primary" | "secondary" | "ghost" | "danger" | "subt
 export type ButtonSize = "sm" | "md" | "lg";
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-colors select-none whitespace-nowrap " +
+  "inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-colors select-none whitespace-nowrap " +
   "disabled:cursor-not-allowed disabled:opacity-55 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/30";
 
 const variants: Record<ButtonVariant, string> = {
@@ -15,7 +15,7 @@ const variants: Record<ButtonVariant, string> = {
   secondary: "bg-surface text-ink border border-border-strong hover:bg-surface-muted",
   ghost: "text-ink-muted hover:bg-surface-muted hover:text-ink",
   subtle: "bg-primary-soft text-primary hover:bg-primary/15",
-  danger: "bg-danger text-white hover:bg-danger/90 shadow-sm",
+  danger: "bg-danger text-danger-ink hover:bg-danger/90 shadow-sm",
 };
 
 // Altura mínima de 44px em telas de toque (sm vira 40px apenas em desktop).
@@ -81,7 +81,7 @@ export const IconButton = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTM
         type={type}
         aria-label={label}
         title={label}
-        className={clsx(base, variants[variant], "h-11 w-11 sm:h-10 sm:w-10 p-0 shrink-0", className)}
+        className={clsx(base, variants[variant], "h-11 w-11 sm:h-10 sm:w-10 p-0 shrink-0 rounded-full", className)}
         {...rest}
       >
         {children}

@@ -5,9 +5,9 @@ export function AuthLayout({ title, subtitle, children, footer }: { title: strin
   return (
     <div className="flex min-h-dvh flex-col items-center justify-center bg-bg px-4 py-10">
       <div className="mb-6 flex items-center gap-2.5">
-        <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary text-primary-ink">
+        <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-primary-ink">
           <svg viewBox="0 0 32 32" className="h-6 w-6" aria-hidden>
-            <path d="M16 5c3.5 4.6 7 7.6 7 12.2a7 7 0 0 1-14 0C9 12.6 12.5 9.6 16 5z" fill="currentColor" />
+            <path d="M16 25.5s-8.5-5.2-8.5-11.2A4.9 4.9 0 0 1 16 11.4a4.9 4.9 0 0 1 8.5 2.9c0 6-8.5 11.2-8.5 11.2z" fill="currentColor" />
           </svg>
         </span>
         <span className="text-xl font-semibold">Lumi</span>

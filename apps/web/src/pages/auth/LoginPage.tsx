@@ -1,6 +1,6 @@
 import { loginSchema } from "@clinica/shared";
 import { useQueryClient } from "@tanstack/react-query";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff } from "../../ui/icons";
 import { useEffect, useState, type FormEvent } from "react";
 import { useNavigate, useSearchParams } from "react-router";
 import { ApiError, api } from "../../lib/api";
@@ -91,7 +91,7 @@ export function LoginPage() {
         </button>
         {forgot && (
           <Callout tone="info">
-            Peça ao administrador da sua clínica um novo convite de acesso. A recuperação de senha por e-mail depende da integração de envio de e-mails, prevista para uma próxima etapa.
+            Peça ao administrador da sua clínica um novo link de acesso. Ele pode enviar o link para você pelo WhatsApp.
           </Callout>
         )}
       </form>

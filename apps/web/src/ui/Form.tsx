@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import { AlertCircle, Check } from "lucide-react";
+import { AlertCircle, Check } from "./icons";
 import {
   cloneElement,
   forwardRef,
@@ -13,7 +13,7 @@ import {
 } from "react";
 
 const control =
-  "block w-full rounded-lg border bg-surface px-3 text-base sm:text-[0.9375rem] text-ink placeholder:text-ink-subtle " +
+  "block w-full rounded-xl border bg-surface px-3 text-base sm:text-[0.9375rem] text-ink placeholder:text-ink-subtle " +
   "transition-colors focus:outline-none focus:ring-4 focus:ring-primary/20 focus:border-primary " +
   "disabled:bg-surface-muted disabled:text-ink-subtle";
 
@@ -97,7 +97,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectHTMLAttributes<HTMLSel
       className={clsx(control, "h-11 sm:h-10 pr-8 appearance-none bg-no-repeat", controlBorder(rest["aria-invalid"] === true), className)}
       style={{
         backgroundImage:
-          "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23524d48' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E\")",
+          "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%239b7d8c' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E\")",
         backgroundPosition: "right 0.6rem center",
       }}
       {...rest}
@@ -120,10 +120,10 @@ export function Checkbox({
         <input
           id={rest.id ?? id}
           type="checkbox"
-          className="peer h-5 w-5 appearance-none rounded-md border border-border-strong bg-surface checked:border-primary checked:bg-primary focus-visible:ring-4 focus-visible:ring-primary/30 focus:outline-none disabled:opacity-50"
+          className="peer h-5 w-5 appearance-none rounded-[7px] border border-border-strong bg-surface checked:border-primary checked:bg-primary focus-visible:ring-4 focus-visible:ring-primary/30 focus:outline-none disabled:opacity-50"
           {...rest}
         />
-        <Check className="pointer-events-none absolute inset-0 m-auto hidden h-3.5 w-3.5 text-white peer-checked:block" strokeWidth={3} aria-hidden />
+        <Check className="pointer-events-none absolute inset-0 m-auto hidden h-3.5 w-3.5 text-primary-ink peer-checked:block" weight="bold" aria-hidden />
       </span>
       <span className="flex flex-col">
         <span className="text-[0.9375rem] text-ink">{label}</span>
@@ -165,7 +165,7 @@ export function Switch({
           checked ? "bg-primary" : "bg-border-strong",
         )}
       >
-        <span className={clsx("inline-block h-5 w-5 rounded-full bg-white shadow transition-transform", checked ? "translate-x-6" : "translate-x-1")} />
+        <span className={clsx("inline-block h-5 w-5 rounded-full bg-surface shadow transition-transform", checked ? "translate-x-6" : "translate-x-1")} />
       </button>
     </div>
   );

@@ -1,5 +1,5 @@
 import { MODULES, type ModuleKey } from "@clinica/shared";
-import { Construction, MapPinOff } from "lucide-react";
+import { Construction, MapPinOff } from "../../ui/icons";
 import { useEffect } from "react";
 import { ButtonLink, Card, EmptyState, PageHeader } from "../../ui";
 

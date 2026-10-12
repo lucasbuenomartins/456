@@ -1,5 +1,5 @@
 import { READ_ONLY_GRACE_DAYS } from "@clinica/shared";
-import { Download, FileSpreadsheet } from "lucide-react";
+import { Download, FileSpreadsheet } from "../../ui/icons";
 import { useSession } from "../../app/session";
 import { useScreen } from "../../tours/TourProvider";
 import { Card, buttonClass } from "../../ui";

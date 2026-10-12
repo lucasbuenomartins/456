@@ -2,8 +2,9 @@ import { changePasswordSchema } from "@clinica/shared";
 import { useState, type FormEvent } from "react";
 import { useSession } from "../../app/session";
 import { ApiError, api } from "../../lib/api";
+import { useTheme, type ThemePreference } from "../../lib/theme";
 import { useScreen, useTours } from "../../tours/TourProvider";
-import { Button, Card, Field, Input, PageHeader, useToast } from "../../ui";
+import { Button, Card, ChoiceGroup, Field, Input, PageHeader, useToast } from "../../ui";
 import { PasswordInput } from "../auth/LoginPage";
 
 export function ProfilePage() {
@@ -18,6 +19,7 @@ export function ProfilePage() {
   const [pwdErrors, setPwdErrors] = useState<Record<string, string>>({});
   const [savingPwd, setSavingPwd] = useState(false);
   const [resetting, setResetting] = useState(false);
+  const theme = useTheme();
 
   const saveName = async (e: FormEvent) => {
     e.preventDefault();
@@ -65,6 +67,19 @@ export function ProfilePage() {
             </Field>
             <Button type="submit" variant="secondary" loading={savingName}>Salvar nome</Button>
           </form>
+        </Card>
+        <Card title="Aparência" tourId="profile.theme">
+          <ChoiceGroup<ThemePreference>
+            label="Tema"
+            value={theme.preference}
+            onChange={(v) => theme.setPreference(v ?? "system")}
+            options={[
+              { value: "light", label: "Claro" },
+              { value: "dark", label: "Escuro" },
+              { value: "system", label: "Automático (como o aparelho)" },
+            ]}
+          />
+          <p className="mt-2 text-xs text-ink-subtle">A escolha vale para este aparelho.</p>
         </Card>
         <Card title="Trocar senha" tourId="profile.password">
           <form onSubmit={savePwd} noValidate className="grid gap-4 sm:grid-cols-3">

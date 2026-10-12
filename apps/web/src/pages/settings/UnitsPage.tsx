@@ -1,6 +1,6 @@
 import { formatPhoneBR, unitSchema } from "@clinica/shared";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { MapPin, Pencil, Plus } from "lucide-react";
+import { MapPin, Pencil, Plus } from "../../ui/icons";
 import { useState } from "react";
 import { useSession } from "../../app/session";
 import { ApiError, api } from "../../lib/api";

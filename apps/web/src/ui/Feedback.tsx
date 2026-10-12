@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import { AlertTriangle, CheckCircle2, CloudOff, Info, Loader2, RefreshCw, XCircle } from "lucide-react";
+import { AlertTriangle, CheckCircle2, CloudOff, Info, Loader2, RefreshCw, XCircle } from "./icons";
 import type { ReactNode } from "react";
 import { initials } from "../lib/format";
 import { Button } from "./Button";

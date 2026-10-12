@@ -77,14 +77,14 @@ describe("Cadastro de clientes", () => {
 
   it("registra consentimentos de comunicação com histórico", async () => {
     const c = await carla();
-    const created = (await c.post("/api/clients", { fullName: "Cliente Consentimento", phone: uniquePhone(), consents: { whatsapp: true, email: false, sms: false } })).json();
+    const created = (await c.post("/api/clients", { fullName: "Cliente Consentimento", phone: uniquePhone(), consents: { whatsapp: true, sms: false } })).json();
     let detail = (await c.get(`/api/clients/${created.id}`)).json();
     expect(detail.consents.find((x: { channel: string }) => x.channel === "whatsapp").granted).toBe(true);
     expect(detail.consents.find((x: { channel: string }) => x.channel === "whatsapp").recordedBy).toBe("Carla Mendes");
-    await c.put(`/api/clients/${created.id}`, { ...created, consents: { whatsapp: false, email: true, sms: false } });
+    await c.put(`/api/clients/${created.id}`, { ...created, consents: { whatsapp: false, sms: true } });
     detail = (await c.get(`/api/clients/${created.id}`)).json();
     expect(detail.consents.find((x: { channel: string }) => x.channel === "whatsapp").granted).toBe(false);
-    expect(detail.consents.find((x: { channel: string }) => x.channel === "email").granted).toBe(true);
+    expect(detail.consents.find((x: { channel: string }) => x.channel === "sms").granted).toBe(true);
     expect(detail.activity.some((a: { action: string }) => a.action === "client.updated")).toBe(true);
   });
 

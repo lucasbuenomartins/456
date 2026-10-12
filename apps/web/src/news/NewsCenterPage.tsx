@@ -1,5 +1,5 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles } from "../ui/icons";
 import { useEffect } from "react";
 import { api } from "../lib/api";
 import { formatDate } from "../lib/format";

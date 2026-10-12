@@ -9,7 +9,7 @@
 | 3 | Anamnese configurável, prontuário, evolução, fotos, termos, rascunho com sincronização no servidor | |
 | 4 | Financeiro (vendas, recebimentos, caixa, comissões), pacotes com venda, estoque e compras, primeiros relatórios | |
 | 5 | CRM (pipeline, tarefas, inativos, retornos), métricas de conversão e retenção | |
-| 6 | Integrações (WhatsApp/e-mail/SMS, pagamentos), automações, portal com autoagendamento | |
+| 6 | Integrações (WhatsApp/SMS, pagamentos), automações, portal com autoagendamento | |
 
 **Ajuste de sequência justificado**: o cadastro de **clientes** entrou na Etapa 1 (estava na 2) porque é a identidade única de toda a plataforma e a melhor jornada real para validar isolamento, permissões, rascunhos, idempotência e tours desde o início. Serviços e profissionais ficaram na Etapa 2 porque suas regras (duração, preparação, recursos) nascem junto com a agenda.
 
@@ -26,7 +26,7 @@
 
 **Demonstração ou dependente de integração (sinalizado na interface):**
 - Módulos Agenda, Prontuário, Financeiro, Estoque, CRM, Relatórios: menu e abas da ficha mostram "Em breve/Em construção" quando contratados — sem dados fictícios.
-- Convite e "esqueci minha senha": sem envio de e-mail; o link é compartilhado manualmente (copiar/WhatsApp).
+- Convite e "esqueci minha senha": sem envio automático; o link é compartilhado manualmente (copiar/WhatsApp). E-mail não é usado para contato.
 - Cobrança do plano: sem gateway.
 - Dados do `seed` são de demonstração (senha fixa); não usar em produção.
 

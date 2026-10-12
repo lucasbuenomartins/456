@@ -1,5 +1,5 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles } from "../ui/icons";
 import { useEffect, useRef, useState } from "react";
 import { useSession } from "../app/session";
 import { api } from "../lib/api";

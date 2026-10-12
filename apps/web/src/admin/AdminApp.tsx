@@ -1,11 +1,12 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { clsx } from "clsx";
-import { Building2, CircleHelp, LogOut, Package, Sparkles } from "lucide-react";
+import { Building2, CircleHelp, LogOut, Moon, Package, Sparkles, Sun } from "../ui/icons";
 import { useEffect, useState, type FormEvent } from "react";
 import { NavLink, Navigate, Outlet, Route, Routes, useNavigate } from "react-router";
 import { ApiError, api } from "../lib/api";
 import { PasswordInput } from "../pages/auth/LoginPage";
 import { AuthLayout } from "../pages/auth/AuthLayout";
+import { useTheme } from "../lib/theme";
 import { TourProvider, useTours } from "../tours/TourProvider";
 import { Button, Callout, ErrorState, Field, Input, Menu, MenuContent, MenuItem, MenuTrigger, Spinner } from "../ui";
 import { NewsAdminPage } from "./NewsAdminPage";
@@ -60,6 +61,7 @@ function AdminLogin() {
 function AdminShell() {
   const navigate = useNavigate();
   const tours = useTours();
+  const theme = useTheme();
   const links = [
     { to: "/admin/empresas", label: "Empresas", icon: Building2 },
     { to: "/admin/planos", label: "Planos", icon: Package },
@@ -67,7 +69,7 @@ function AdminShell() {
   ];
   return (
     <div className="min-h-dvh">
-      <header className="sticky top-0 z-20 border-b border-border bg-ink text-ink-inverse">
+      <header className="sticky top-0 z-20 border-b border-border bg-surface text-ink">
         <div className="mx-auto flex h-14 max-w-6xl items-center gap-2 px-4 sm:px-6">
           <span className="mr-4 text-sm font-semibold">Lumi · Painel da plataforma</span>
           <nav className="flex flex-1 gap-1 overflow-x-auto" aria-label="Painel">
@@ -75,15 +77,22 @@ function AdminShell() {
               <NavLink
                 key={l.to}
                 to={l.to}
-                className={({ isActive }) => clsx("inline-flex min-h-[40px] items-center gap-1.5 rounded-lg px-3 text-sm", isActive ? "bg-white/15 font-medium" : "text-white/75 hover:bg-white/10")}
+                className={({ isActive }) => clsx("inline-flex min-h-[40px] items-center gap-1.5 rounded-lg px-3 text-sm", isActive ? "bg-primary-soft font-semibold text-primary" : "text-ink-muted hover:bg-surface-muted")}
               >
                 <l.icon className="h-4 w-4" aria-hidden />
                 <span className="hidden sm:inline">{l.label}</span>
               </NavLink>
             ))}
           </nav>
+          <button
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full text-ink-muted hover:bg-surface-muted"
+            aria-label={theme.resolved === "dark" ? "Usar tema claro" : "Usar tema escuro"}
+            onClick={() => theme.setPreference(theme.resolved === "dark" ? "light" : "dark")}
+          >
+            {theme.resolved === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+          </button>
           <Menu>
-            <MenuTrigger className="inline-flex h-10 items-center gap-1.5 rounded-lg px-2 text-sm text-white/80 hover:bg-white/10" aria-label="Ajuda">
+            <MenuTrigger className="inline-flex h-10 items-center gap-1.5 rounded-lg px-2 text-sm text-ink-muted hover:bg-surface-muted" aria-label="Ajuda">
               <CircleHelp className="h-5 w-5" aria-hidden />
             </MenuTrigger>
             <MenuContent>
@@ -93,7 +102,7 @@ function AdminShell() {
             </MenuContent>
           </Menu>
           <button
-            className="inline-flex h-10 items-center gap-1.5 rounded-lg px-2 text-sm text-white/80 hover:bg-white/10"
+            className="inline-flex h-10 items-center gap-1.5 rounded-lg px-2 text-sm text-ink-muted hover:bg-surface-muted"
             onClick={async () => {
               await api("/api/admin/auth/logout", { body: {} });
               navigate("/admin/entrar", { replace: true });

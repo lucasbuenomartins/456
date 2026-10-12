@@ -292,7 +292,7 @@ export async function settingsRoutes(app: FastifyInstance) {
       await audit(tx, ctx, { action: "team.invited", entityType: "invite", entityId: row!.id, summary: `Convite criado para ${row!.name}.` });
       return row!;
     });
-    // O envio por e-mail depende de integração futura: o link é exibido para ser compartilhado manualmente.
+    // O envio automático (WhatsApp) depende de integração futura: o link é exibido para ser compartilhado manualmente.
     return reply.status(201).send({ id: invite.id, inviteUrl: `${config.appOrigin}/convite/${token}`, expiresAt: invite.expiresAt });
   });
 

@@ -37,7 +37,7 @@
 | P4 | Uma pessoa pode trabalhar em várias clínicas com o mesmo login (escolhe a clínica ao entrar) | Profissionais autônomos atendem em mais de um lugar | — |
 | P5 | Funções (roles) por empresa, criadas a partir de modelos editáveis; atribuídas por unidade ou "todas as unidades" | Pedido: permissões por função, unidade e ação | — |
 | P6 | O responsável pela conta (owner) tem sempre todas as permissões | Evita a clínica perder acesso à própria conta | — |
-| P7 | Envio de e-mail/WhatsApp/SMS **não** está integrado: convites geram link para compartilhar manualmente | Sem integração real, não fingimos envio | Interface de envio prevista (Etapa 6) |
+| P7 | Envio por WhatsApp/SMS **não** está integrado: convites geram link para compartilhar manualmente. **E-mail não é canal de contato** (decisão do cliente); o e-mail serve só para login e, opcionalmente, como dado de cadastro | Sem integração real, não fingimos envio | Interface de envio prevista (Etapa 6) |
 | P8 | Cobrança do SaaS manual (sem gateway) | Idem | Interface de cobrança prevista |
 | P9 | Módulo desativado: 90 dias em somente leitura (consulta e exportação), depois oculto com dados preservados | Pedido: regras claras após desativação | Constante `READ_ONLY_GRACE_DAYS` |
 | P10 | Conta cancelada: 90 dias para exportação; prontuários seguem a política de retenção contratual | Prazos legais variam; precisam de validação jurídica | Ver pergunta Q2 |
@@ -48,7 +48,7 @@
 
 | # | Pergunta | Impacto | Quando decidir |
 |---|---|---|---|
-| Q1 | Qual provedor de WhatsApp (API oficial/BSP), e-mail e SMS? | Lembretes, convites, recuperação de senha | Antes da Etapa 6 (lembretes podem ser manuais até lá) |
+| Q1 | Qual provedor de WhatsApp (API oficial/BSP) e SMS? | Lembretes, convites, recuperação de senha | Antes da Etapa 6 (lembretes podem ser manuais até lá) |
 | Q2 | Prazos de retenção de prontuário e imagens adotados no contrato | Exclusão após cancelamento | Antes da Etapa 3 — validar com assessoria jurídica |
 | Q3 | Assinatura de termos: aceite simples na tela ou assinatura eletrônica com provedor? | Validade dos termos; não afirmaremos validade jurídica | Antes da Etapa 3 |
 | Q4 | Emissão fiscal (NFS-e) e meio de pagamento (gateway/TEF) desejados | Financeiro | Antes da Etapa 4 (interfaces já previstas) |

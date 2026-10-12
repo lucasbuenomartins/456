@@ -1,6 +1,6 @@
 import { MODULES, MODULE_STATUS_LABEL, type ModuleKey, type ModuleStatus } from "@clinica/shared";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { Copy, Link2 } from "lucide-react";
+import { Copy, Link2 } from "../ui/icons";
 import { useState } from "react";
 import { useParams } from "react-router";
 import { ApiError, api } from "../lib/api";

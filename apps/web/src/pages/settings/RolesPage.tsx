@@ -1,6 +1,6 @@
 import { MODULES, PERMISSIONS, type PermissionDefinition } from "@clinica/shared";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { ChevronRight, Plus, ShieldAlert, Trash2 } from "lucide-react";
+import { ChevronRight, Plus, ShieldAlert, Trash2 } from "../../ui/icons";
 import { useMemo, useState } from "react";
 import { useSession } from "../../app/session";
 import { ApiError, api } from "../../lib/api";

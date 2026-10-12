@@ -1,35 +1,38 @@
-@import "@fontsource-variable/inter";
+@import "@fontsource-variable/nunito";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /*
- * Tokens do design system. Canais RGB para permitir opacidade no Tailwind (bg-primary/10).
- * Contraste mínimo verificado (WCAG AA) para texto sobre surface:
- *   ink 16:1 · ink-muted 7.4:1 · ink-subtle 4.8:1 · primary 5.5:1 · danger 6.5:1
+ * Tokens do design system em canais RGB (permite bg-primary/10 no Tailwind).
+ * Dois temas: claro (padrão) e escuro, escolhidos em data-theme no <html>.
+ * Contraste (WCAG AA) conferido para texto sobre surface em ambos:
+ *   claro  — ink 16:1 · ink-muted 8:1 · ink-subtle 5,6:1 · primary 6:1 (branco sobre primary 6:1)
+ *   escuro — ink 15:1 · ink-muted 10:1 · ink-subtle 6,5:1 · primary 7:1 (primary-ink sobre primary 7:1)
  */
 @layer base {
-  :root {
-    --bg: 248 247 245;
+  :root,
+  :root[data-theme="light"] {
+    --bg: 253 247 250;
     --surface: 255 255 255;
-    --surface-muted: 243 241 238;
-    --surface-sunken: 236 233 229;
-    --border: 226 222 217;
-    --border-strong: 200 194 187;
+    --surface-muted: 252 240 245;
+    --surface-sunken: 248 229 238;
+    --border: 243 221 231;
+    --border-strong: 225 192 208;
 
-    --ink: 28 25 23;
-    --ink-muted: 82 77 72;
-    --ink-subtle: 112 106 100;
+    --ink: 46 27 39;
+    --ink-muted: 99 71 87;
+    --ink-subtle: 125 96 112;
     --ink-inverse: 255 255 255;
 
-    --primary: 15 118 110;
-    --primary-hover: 17 94 89;
-    --primary-soft: 230 246 243;
+    --primary: 190 24 93;
+    --primary-hover: 157 23 77;
+    --primary-soft: 253 234 243;
     --primary-ink: 255 255 255;
 
-    --accent: 190 24 93;
-    --accent-soft: 253 236 243;
+    --accent: 109 40 217;
+    --accent-soft: 243 236 255;
 
     --success: 21 128 61;
     --success-soft: 232 247 237;
@@ -37,10 +40,51 @@
     --warning-soft: 254 243 222;
     --danger: 185 28 28;
     --danger-soft: 253 235 235;
+    --danger-ink: 255 255 255;
     --info: 29 78 216;
     --info-soft: 232 240 254;
 
+    --overlay: 46 27 39;
+    --shadow: 120 40 80;
+
     color-scheme: light;
+  }
+
+  :root[data-theme="dark"] {
+    --bg: 23 15 20;
+    --surface: 34 23 30;
+    --surface-muted: 45 31 40;
+    --surface-sunken: 56 39 50;
+    --border: 64 45 57;
+    --border-strong: 94 69 84;
+
+    --ink: 251 238 245;
+    --ink-muted: 220 196 209;
+    --ink-subtle: 178 150 166;
+    --ink-inverse: 34 23 30;
+
+    --primary: 244 124 186;
+    --primary-hover: 249 168 212;
+    --primary-soft: 72 32 54;
+    --primary-ink: 46 12 30;
+
+    --accent: 196 181 253;
+    --accent-soft: 52 40 82;
+
+    --success: 110 231 160;
+    --success-soft: 22 52 36;
+    --warning: 252 196 90;
+    --warning-soft: 62 45 18;
+    --danger: 252 129 129;
+    --danger-soft: 72 26 30;
+    --danger-ink: 46 12 12;
+    --info: 147 197 253;
+    --info-soft: 26 40 72;
+
+    --overlay: 0 0 0;
+    --shadow: 0 0 0;
+
+    color-scheme: dark;
   }
 
   html {
@@ -50,7 +94,7 @@
 
   body {
     @apply bg-bg text-ink font-sans antialiased;
-    font-feature-settings: "cv11", "ss01";
+    
   }
 
   /* Foco sempre visível para quem navega pelo teclado. */
@@ -75,7 +119,7 @@
 
 @layer components {
   .card {
-    @apply rounded-xl border border-border bg-surface shadow-card;
+    @apply rounded-2xl border border-border bg-surface shadow-card;
   }
   .sr-only-focusable:not(:focus) {
     @apply sr-only;
@@ -100,8 +144,8 @@
 .tour-spotlight {
   position: fixed;
   pointer-events: none;
-  border-radius: 12px;
-  box-shadow: 0 0 0 3px rgb(var(--primary)), 0 0 0 9999px rgb(28 25 23 / 0.28);
+  box-shadow: 0 0 0 3px rgb(var(--primary)), 0 0 0 9999px rgb(var(--overlay) / 0.32);
+  border-radius: 18px;
   transition: all 180ms ease-out;
   z-index: 60;
 }

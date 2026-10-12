@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import { CheckCircle2, Info, X, XCircle } from "lucide-react";
+import { CheckCircle2, Info, X, XCircle } from "./icons";
 import { createContext, useCallback, useContext, useMemo, useRef, useState, type ReactNode } from "react";
 
 type ToastTone = "success" | "error" | "info";
@@ -65,13 +65,13 @@ export function ToastProvider({ children }: { children: ReactNode }) {
             <div
               key={t.id}
               role={t.tone === "error" ? "alert" : "status"}
-              className="pointer-events-auto flex w-full max-w-sm items-start gap-3 rounded-xl bg-ink px-4 py-3 text-sm text-ink-inverse shadow-pop animate-slide-up"
+              className="pointer-events-auto flex w-full max-w-sm items-start gap-3 rounded-2xl border border-border bg-surface px-4 py-3 text-sm text-ink shadow-pop animate-slide-up"
             >
-              <Icon className={clsx("mt-0.5 h-5 w-5 shrink-0", t.tone === "success" && "text-emerald-300", t.tone === "error" && "text-red-300")} aria-hidden />
+              <Icon className={clsx("mt-0.5 h-5 w-5 shrink-0", t.tone === "success" && "text-success", t.tone === "error" && "text-danger", t.tone === "info" && "text-primary")} aria-hidden />
               <p className="flex-1">{t.message}</p>
               {t.action && (
                 <button
-                  className="font-semibold text-teal-200 underline-offset-2 hover:underline"
+                  className="font-semibold text-primary underline-offset-2 hover:underline"
                   onClick={() => {
                     t.action!.onClick();
                     dismiss(t.id);
@@ -80,7 +80,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
                   {t.action.label}
                 </button>
               )}
-              <button aria-label="Fechar aviso" onClick={() => dismiss(t.id)} className="-m-1 rounded p-1 text-ink-inverse/70 hover:text-ink-inverse">
+              <button aria-label="Fechar aviso" onClick={() => dismiss(t.id)} className="-m-1 rounded p-1 text-ink-subtle hover:text-ink">
                 <X className="h-4 w-4" />
               </button>
             </div>

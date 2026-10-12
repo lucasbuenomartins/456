@@ -119,6 +119,7 @@ const defs: TourDefinition[] = [
     id: "screen.profile",
     steps: [
       { title: "Meu perfil", body: "Seus dados de acesso e preferências." },
+      { anchor: "profile.theme", title: "Claro ou escuro", body: "Escolha o tema que for mais confortável para seus olhos." },
       { anchor: "profile.password", title: "Senha", body: "Troque sua senha quando quiser. As outras sessões abertas serão encerradas." },
       { anchor: "profile.tours", title: "Tours", body: "Quer rever as explicações das telas? Reative os tours aqui." },
     ],

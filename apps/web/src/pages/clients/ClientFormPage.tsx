@@ -1,6 +1,6 @@
 import { CLIENT_ORIGINS, CLIENT_ORIGIN_LABEL, clientInputSchema, formatCpf, formatPhoneBR, onlyDigits } from "@clinica/shared";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { ChevronDown, MessageCircle, Plus, X } from "lucide-react";
+import { ChevronDown, MessageCircle, Plus, X } from "../../ui/icons";
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { Link, useNavigate, useParams, useSearchParams } from "react-router";
 import { useSession } from "../../app/session";
@@ -44,7 +44,7 @@ interface FormState {
   notes: string;
   tags: string[];
   address: { zipCode: string; street: string; number: string; complement: string; district: string; city: string; state: string };
-  consents: { whatsapp: boolean; email: boolean; sms: boolean };
+  consents: { whatsapp: boolean; sms: boolean };
 }
 
 const EMPTY: FormState = {
@@ -60,7 +60,7 @@ const EMPTY: FormState = {
   notes: "",
   tags: [],
   address: { zipCode: "", street: "", number: "", complement: "", district: "", city: "", state: "" },
-  consents: { whatsapp: false, email: false, sms: false },
+  consents: { whatsapp: false, sms: false },
 };
 
 interface Candidate {
@@ -326,7 +326,7 @@ export function ClientFormPage() {
             <Field label="Data de nascimento" error={errors.birthDate} optional>
               <Input name="birthDate" type="date" value={form.birthDate} max={new Date().toISOString().slice(0, 10)} onChange={(e) => set("birthDate", e.target.value)} />
             </Field>
-            <Field label="E-mail" error={errors.email} optional>
+            <Field label="E-mail" error={errors.email} optional hint="Apenas para cadastro; não é usado para contato.">
               <Input name="email" type="email" inputMode="email" value={form.email} onChange={(e) => set("email", e.target.value)} autoComplete="off" />
             </Field>
           </div>
@@ -420,9 +420,8 @@ export function ClientFormPage() {
         </section>
 
         <FormSection title="Autorização de contato" description="Para mensagens de relacionamento e promoções. Marque apenas com autorização do cliente.">
-          <div data-tour="clients.form.consents" className="grid gap-1 sm:grid-cols-3">
+          <div data-tour="clients.form.consents" className="grid gap-1 sm:grid-cols-2">
             <Checkbox label="WhatsApp" checked={form.consents.whatsapp} onChange={(e) => set("consents", { ...form.consents, whatsapp: e.target.checked })} />
-            <Checkbox label="E-mail" checked={form.consents.email} onChange={(e) => set("consents", { ...form.consents, email: e.target.checked })} />
             <Checkbox label="SMS" checked={form.consents.sms} onChange={(e) => set("consents", { ...form.consents, sms: e.target.checked })} />
           </div>
           <p className="text-xs text-ink-subtle">

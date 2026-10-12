@@ -2,24 +2,30 @@
 
 ## Direção visual
 
-- **Calma e profissional**: fundo quente quase branco, superfícies brancas, verde-azulado (teal) como cor de ação — remete a cuidado/saúde sem parecer hospital; rosa profundo só para destaques pontuais (novidades, aniversários).
-- **Legível antes de bonito**: Inter, corpo 15–16 px (nunca < 13 px), títulos 24–28 px, números tabulares em valores e datas.
+- **Acolhedora e delicada ("fofa"), sem perder a seriedade**: tons de rosa como cor principal, lilás como destaque pontual, fundo levemente rosado.
+- **Formas arredondadas**: botões em pílula, cantos generosos (14–30 px), ícones Phosphor em estilo *duotone* (traço arredondado com preenchimento suave), logo em coração.
+- **Fonte arredondada**: Nunito, corpo 15–16 px (nunca < 13 px), títulos 24–28 px, números tabulares em valores e datas.
 - **Pouco ruído**: cartões só quando agrupam algo; nada de gráfico sem decisão associada; uma ação primária por tela.
 - **Toque confortável**: alvos ≥ 44 px no celular/tablet; barra de ações fixa no rodapé dos formulários.
 
+## Temas
+
+Dois temas: **claro** (padrão) e **escuro**, além de **Automático** (segue o aparelho). A escolha fica em Meu perfil → Aparência ou no menu da conta, e vale para o aparelho. O tema é aplicado antes da primeira pintura (sem piscar). Todas as cores vêm de tokens, redefinidos em `:root[data-theme="dark"]`.
+
 ## Tokens (`apps/web/src/styles/index.css`)
 
-| Token | Uso | Contraste sobre branco |
+| Token | Uso | Contraste sobre a superfície (claro / escuro) |
 |---|---|---|
-| `ink` | texto principal | 16:1 |
-| `ink-muted` | texto secundário | 7,4:1 |
-| `ink-subtle` | legendas, dicas | 4,8:1 |
-| `primary` (#0F766E) | ações, links, foco | 5,5:1 |
-| `accent` | novidades, destaques | — |
+| `ink` | texto principal | 16:1 / 15:1 |
+| `ink-muted` | texto secundário | 8:1 / 10:1 |
+| `ink-subtle` | legendas, dicas | 5,6:1 / 6,5:1 |
+| `primary` (rosa #BE185D / #F47CBA) | ações, links, foco | 6:1 / 7:1 |
+| `primary-ink` | texto sobre botão primário | 6:1 / 7:1 |
+| `accent` (lilás) | novidades, destaques | 7:1 / 9:1 |
 | `success` / `warning` / `danger` / `info` (+ `-soft`) | estados e avisos | ≥ 4,5:1 |
-| `surface`, `surface-muted`, `bg`, `border` | camadas | — |
+| `surface`, `surface-muted`, `bg`, `border`, `overlay`, `shadow` | camadas | — |
 
-Foco visível em todos os elementos (contorno de 3 px). Respeita `prefers-reduced-motion`. Tema escuro: tokens prontos para receber uma segunda paleta (não priorizado).
+Foco visível em todos os elementos (contorno de 3 px). Respeita `prefers-reduced-motion`. Ícones centralizados em `apps/web/src/ui/icons.ts` (trocar a biblioteca exige mexer só nesse arquivo).
 
 ## Componentes (`apps/web/src/ui`)
 

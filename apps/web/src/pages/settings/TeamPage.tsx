@@ -1,6 +1,6 @@
 import { PERMISSION_MAP } from "@clinica/shared";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { Copy, Link2, MessageCircle, MoreHorizontal, Plus, ShieldAlert, Trash2, UserMinus, UserPlus, UserCheck, KeyRound } from "lucide-react";
+import { Copy, Link2, MessageCircle, MoreHorizontal, Plus, ShieldAlert, Trash2, UserMinus, UserPlus, UserCheck, KeyRound } from "../../ui/icons";
 import { useState } from "react";
 import { useSession } from "../../app/session";
 import { ApiError, api } from "../../lib/api";
@@ -322,7 +322,7 @@ function InviteDialog({ initial, roles, units, onClose, onDone }: { initial: Par
               <MessageCircle className="h-4 w-4 text-success" aria-hidden /> Enviar por WhatsApp
             </a>
           </div>
-          <p className="text-xs text-ink-subtle">O envio automático por e-mail depende de integração que será adicionada em uma próxima etapa.</p>
+          <p className="text-xs text-ink-subtle">O envio automático pelo WhatsApp depende de integração prevista para uma próxima etapa.</p>
         </div>
       </Dialog>
     );

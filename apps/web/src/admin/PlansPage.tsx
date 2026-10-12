@@ -1,6 +1,6 @@
 import { MODULES, MODULE_KEYS, type ModuleKey } from "@clinica/shared";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { Plus } from "lucide-react";
+import { Plus } from "../ui/icons";
 import { useState } from "react";
 import { ApiError, api } from "../lib/api";
 import { formatMoney } from "../lib/format";

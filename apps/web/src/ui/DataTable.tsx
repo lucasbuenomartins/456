@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "./icons";
 import type { KeyboardEvent, ReactNode } from "react";
 import { useIsMobile } from "../lib/hooks";
 import { Button } from "./Button";
@@ -181,12 +181,12 @@ export function Pagination({ page, pageSize, total, onPage }: { page: number; pa
 export function BulkBar({ count, onClear, children }: { count: number; onClear: () => void; children: ReactNode }) {
   if (count === 0) return null;
   return (
-    <div role="region" aria-label="Ações em lote" className="sticky bottom-20 z-20 mx-auto mt-3 flex w-full max-w-3xl flex-wrap items-center gap-2 rounded-xl bg-ink px-4 py-3 text-ink-inverse shadow-pop sm:bottom-4">
+    <div role="region" aria-label="Ações em lote" className="sticky bottom-20 z-20 mx-auto mt-3 flex w-full max-w-3xl flex-wrap items-center gap-2 rounded-2xl bg-ink px-4 py-3 text-ink-inverse shadow-pop sm:bottom-4">
       <span className="mr-auto text-sm font-medium">
         {count} selecionado{count > 1 ? "s" : ""}
       </span>
       {children}
-      <button onClick={onClear} className="rounded-lg px-3 py-2 text-sm text-ink-inverse/80 hover:bg-white/10 hover:text-ink-inverse">
+      <button onClick={onClear} className="rounded-lg px-3 py-2 text-sm text-ink-inverse/80 hover:bg-ink-inverse/10 hover:text-ink-inverse">
         Limpar seleção
       </button>
     </div>

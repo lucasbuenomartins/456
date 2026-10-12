@@ -108,7 +108,8 @@ export const CLIENT_ORIGIN_LABEL: Record<(typeof CLIENT_ORIGINS)[number], string
   outro: "Outro",
 };
 
-export const COMMUNICATION_CHANNELS = ["whatsapp", "email", "sms"] as const;
+/** Canais de contato com o cliente. E-mail não é usado como canal de contato (decisão de produto). */
+export const COMMUNICATION_CHANNELS = ["whatsapp", "sms"] as const;
 export type CommunicationChannel = (typeof COMMUNICATION_CHANNELS)[number];
 
 export const clientInputSchema = z.object({
@@ -128,10 +129,9 @@ export const clientInputSchema = z.object({
   consents: z
     .object({
       whatsapp: z.boolean().default(false),
-      email: z.boolean().default(false),
       sms: z.boolean().default(false),
     })
-    .default({ whatsapp: false, email: false, sms: false }),
+    .default({ whatsapp: false, sms: false }),
   /** Confirma o cadastro mesmo com possível duplicidade (telefone ou nome+nascimento iguais). */
   confirmDuplicate: z.boolean().optional(),
 });

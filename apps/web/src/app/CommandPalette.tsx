@@ -1,7 +1,7 @@
 import * as RDialog from "@radix-ui/react-dialog";
 import { useQuery } from "@tanstack/react-query";
 import { clsx } from "clsx";
-import { ArrowRight, Search, UserPlus, UserRound } from "lucide-react";
+import { ArrowRight, Search, UserPlus, UserRound } from "../ui/icons";
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router";
 import { normalizeSearch } from "@clinica/shared";
@@ -73,9 +73,9 @@ export function CommandPalette({ open, onOpenChange }: { open: boolean; onOpenCh
   return (
     <RDialog.Root open={open} onOpenChange={onOpenChange}>
       <RDialog.Portal>
-        <RDialog.Overlay className="fixed inset-0 z-[70] bg-ink/40 animate-fade-in" />
+        <RDialog.Overlay className="fixed inset-0 z-[70] bg-[rgb(var(--overlay)/0.45)] animate-fade-in" />
         <RDialog.Content
-          className="fixed inset-x-0 top-0 z-[71] flex max-h-[85dvh] flex-col bg-surface shadow-pop animate-slide-up focus:outline-none sm:left-1/2 sm:top-[12vh] sm:w-[600px] sm:-translate-x-1/2 sm:rounded-2xl"
+          className="fixed inset-x-0 top-0 z-[71] flex max-h-[85dvh] flex-col bg-surface shadow-pop animate-slide-up focus:outline-none sm:left-1/2 sm:top-[12vh] sm:w-[600px] sm:-translate-x-1/2 sm:rounded-3xl"
           aria-describedby={undefined}
         >
           <RDialog.Title className="sr-only">Buscar telas e clientes</RDialog.Title>

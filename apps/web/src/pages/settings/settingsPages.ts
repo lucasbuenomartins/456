@@ -1,12 +1,12 @@
 import type { PermissionKey } from "@clinica/shared";
-import { Building2, Download, History, KeyRound, MapPin, Package, Users, type LucideIcon } from "lucide-react";
+import { Building2, Download, History, KeyRound, MapPin, Package, Users, type IconType } from "../../ui/icons";
 import type { Session } from "../../app/session";
 
 export interface SettingsPage {
   to: string;
   label: string;
   description: string;
-  icon: LucideIcon;
+  icon: IconType;
   anyPermission: PermissionKey[];
 }
 

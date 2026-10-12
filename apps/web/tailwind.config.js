@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Inter Variable"', "Inter", "system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
+        // Fonte arredondada, amigável e legível.
+        sans: ['"Nunito Variable"', "Nunito", "system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
       },
       colors: {
         bg: token("bg"),
@@ -18,13 +19,14 @@ export default {
         accent: { DEFAULT: token("accent"), soft: token("accent-soft") },
         success: { DEFAULT: token("success"), soft: token("success-soft") },
         warning: { DEFAULT: token("warning"), soft: token("warning-soft") },
-        danger: { DEFAULT: token("danger"), soft: token("danger-soft") },
+        danger: { DEFAULT: token("danger"), soft: token("danger-soft"), ink: token("danger-ink") },
         info: { DEFAULT: token("info"), soft: token("info-soft") },
       },
-      borderRadius: { lg: "10px", xl: "14px", "2xl": "18px" },
+      // Cantos generosos: visual suave e acolhedor.
+      borderRadius: { lg: "14px", xl: "18px", "2xl": "24px", "3xl": "30px" },
       boxShadow: {
-        card: "0 1px 2px rgb(28 25 23 / 0.04), 0 1px 3px rgb(28 25 23 / 0.06)",
-        pop: "0 10px 30px -10px rgb(28 25 23 / 0.25), 0 4px 10px -4px rgb(28 25 23 / 0.12)",
+        card: "0 1px 2px rgb(var(--shadow) / 0.05), 0 4px 14px -6px rgb(var(--shadow) / 0.10)",
+        pop: "0 16px 40px -12px rgb(var(--shadow) / 0.30), 0 4px 12px -4px rgb(var(--shadow) / 0.14)",
       },
       fontSize: {
         // Corpo nunca abaixo de 14px; padrão 15–16px.

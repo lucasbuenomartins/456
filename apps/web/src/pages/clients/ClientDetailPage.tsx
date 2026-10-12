@@ -1,6 +1,6 @@
 import { MODULES, type ModuleKey, type PermissionKey } from "@clinica/shared";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { CalendarDays, ClipboardList, Copy, Mail, MessageCircle, MoreHorizontal, Pencil, Phone, UserCheck, UserRoundX, Wallet, HeartHandshake } from "lucide-react";
+import { CalendarDays, ClipboardList, Copy, MessageCircle, MoreHorizontal, Pencil, Phone, UserCheck, UserRoundX, Wallet, HeartHandshake } from "../../ui/icons";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { useSession } from "../../app/session";
@@ -52,11 +52,11 @@ export interface ClientDetail {
     updatedAt: string;
   };
   createdByName: string | null;
-  consents: { channel: "whatsapp" | "email" | "sms"; granted: boolean; recordedAt: string | null; recordedBy: string | null }[];
+  consents: { channel: "whatsapp" | "sms"; granted: boolean; recordedAt: string | null; recordedBy: string | null }[];
   activity: { id: string; summary: string; actorName: string | null; createdAt: string; action: string }[];
 }
 
-const CHANNEL_LABEL = { whatsapp: "WhatsApp", email: "E-mail", sms: "SMS" };
+const CHANNEL_LABEL = { whatsapp: "WhatsApp", sms: "SMS" };
 
 /** Abas que os próximos módulos acrescentarão à ficha, quando contratados. */
 const MODULE_TABS: { module: ModuleKey; value: string; label: string; icon: typeof CalendarDays; permission: PermissionKey[]; text: string }[] = [
@@ -156,11 +156,6 @@ export function ClientDetailPage() {
             <MessageCircle className="h-4 w-4 text-success" aria-hidden /> WhatsApp
           </a>
         )}
-        {c.email && (
-          <a href={`mailto:${c.email}`} className={buttonClass("secondary", "md")}>
-            <Mail className="h-4 w-4" aria-hidden /> E-mail
-          </a>
-        )}
         <button
           type="button"
           className={buttonClass("ghost", "md", "hidden sm:inline-flex")}
@@ -221,7 +216,7 @@ export function ClientDetailPage() {
         ))}
 
         <TabPanel value="autorizacoes">
-          <Card title="Autorização de contato (comunicação comercial)">
+          <Card title="Autorização de contato (WhatsApp e SMS)">
             <ul className="divide-y divide-border">
               {consents.map((x) => (
                 <li key={x.channel} className="flex flex-wrap items-center justify-between gap-2 py-3">

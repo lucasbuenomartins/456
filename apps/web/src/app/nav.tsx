@@ -1,11 +1,11 @@
 import type { ModuleKey, PermissionKey } from "@clinica/shared";
-import { BarChart3, Boxes, CalendarDays, ClipboardList, HeartHandshake, Home, Settings, Users, Wallet, type LucideIcon } from "lucide-react";
+import { BarChart3, Boxes, CalendarDays, ClipboardList, HeartHandshake, Home, Settings, Users, Wallet, type IconType } from "../ui/icons";
 import type { Session } from "./session";
 
 export interface NavItem {
   to: string;
   label: string;
-  icon: LucideIcon;
+  icon: IconType;
   module: ModuleKey;
   /** Basta ter uma destas permissões para ver o item. */
   anyPermission?: PermissionKey[];

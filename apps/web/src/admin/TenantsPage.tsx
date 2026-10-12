@@ -1,6 +1,6 @@
 import { createTenantSchema } from "@clinica/shared";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { Building2, Copy, Plus } from "lucide-react";
+import { Building2, Copy, Plus } from "../ui/icons";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { ApiError, api } from "../lib/api";

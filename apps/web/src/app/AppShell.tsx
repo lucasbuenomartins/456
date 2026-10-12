@@ -1,9 +1,10 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { clsx } from "clsx";
-import { Bell, Building, ChevronDown, CircleHelp, Keyboard, LogOut, Menu as MenuIcon, Repeat, Search, Sparkles, UserRound, WifiOff } from "lucide-react";
+import { Bell, Building, ChevronDown, CircleHelp, Keyboard, LogOut, Menu as MenuIcon, Moon, Repeat, Search, Sparkles, Sun, UserRound, WifiOff } from "../ui/icons";
 import { useState, type ReactNode } from "react";
 import { Link, NavLink, Outlet, useNavigate } from "react-router";
 import { NewsLoginDialog } from "../news/NewsLoginDialog";
+import { useTheme } from "../lib/theme";
 import { api } from "../lib/api";
 import { formatDate } from "../lib/format";
 import { useHotkey, useOnline } from "../lib/hooks";
@@ -40,9 +41,9 @@ function SideLink({ item, compact }: { item: NavItem; compact?: boolean }) {
 function Brand({ name }: { name: string }) {
   return (
     <Link to="/" className="flex items-center gap-2.5 rounded-lg" aria-label={`${name} — Início`}>
-      <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-primary-ink">
+      <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-ink">
         <svg viewBox="0 0 32 32" className="h-5 w-5" aria-hidden>
-          <path d="M16 5c3.5 4.6 7 7.6 7 12.2a7 7 0 0 1-14 0C9 12.6 12.5 9.6 16 5z" fill="currentColor" />
+          <path d="M16 25.5s-8.5-5.2-8.5-11.2A4.9 4.9 0 0 1 16 11.4a4.9 4.9 0 0 1 8.5 2.9c0 6-8.5 11.2-8.5 11.2z" fill="currentColor" />
         </svg>
       </span>
       <span className="min-w-0">
@@ -155,6 +156,7 @@ export function AppShell() {
   const navigate = useNavigate();
   const qc = useQueryClient();
   const tours = useTours();
+  const theme = useTheme();
   const [palette, setPalette] = useState(false);
   const [shortcuts, setShortcuts] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
@@ -192,9 +194,9 @@ export function AppShell() {
           <Brand name={session.me.tenant.name} />
         </div>
         <div className="flex justify-center pt-4 lg:hidden">
-          <Link to="/" aria-label="Início" className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-ink">
+          <Link to="/" aria-label="Início" className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-ink">
             <svg viewBox="0 0 32 32" className="h-5 w-5" aria-hidden>
-              <path d="M16 5c3.5 4.6 7 7.6 7 12.2a7 7 0 0 1-14 0C9 12.6 12.5 9.6 16 5z" fill="currentColor" />
+              <path d="M16 25.5s-8.5-5.2-8.5-11.2A4.9 4.9 0 0 1 16 11.4a4.9 4.9 0 0 1 8.5 2.9c0 6-8.5 11.2-8.5 11.2z" fill="currentColor" />
             </svg>
           </Link>
         </div>
@@ -217,9 +219,9 @@ export function AppShell() {
       <div className="sm:pl-20 lg:pl-64">
         <StatusBanners />
         <header className="sticky top-0 z-20 flex h-16 items-center gap-2 border-b border-border bg-surface/95 px-3 backdrop-blur sm:px-6">
-          <Link to="/" aria-label={`${session.me.tenant.name} — Início`} className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-ink sm:hidden">
+          <Link to="/" aria-label={`${session.me.tenant.name} — Início`} className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary text-primary-ink sm:hidden">
             <svg viewBox="0 0 32 32" className="h-5 w-5" aria-hidden>
-              <path d="M16 5c3.5 4.6 7 7.6 7 12.2a7 7 0 0 1-14 0C9 12.6 12.5 9.6 16 5z" fill="currentColor" />
+              <path d="M16 25.5s-8.5-5.2-8.5-11.2A4.9 4.9 0 0 1 16 11.4a4.9 4.9 0 0 1 8.5 2.9c0 6-8.5 11.2-8.5 11.2z" fill="currentColor" />
             </svg>
           </Link>
           <div className="min-w-0 flex-1">
@@ -247,7 +249,7 @@ export function AppShell() {
             >
               <Bell className="h-5 w-5" aria-hidden />
               {unread > 0 && (
-                <span className="absolute right-1.5 top-1.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-accent px-1 text-[0.625rem] font-semibold text-white">
+                <span className="absolute right-1.5 top-1.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-primary px-1 text-[0.625rem] font-bold text-primary-ink">
                   {unread}
                 </span>
               )}
@@ -285,6 +287,12 @@ export function AppShell() {
                 <MenuSeparator />
                 <MenuItem icon={<UserRound />} onSelect={() => navigate("/meu-perfil")}>
                   Meu perfil
+                </MenuItem>
+                <MenuItem
+                  icon={theme.resolved === "dark" ? <Sun /> : <Moon />}
+                  onSelect={() => theme.setPreference(theme.resolved === "dark" ? "light" : "dark")}
+                >
+                  {theme.resolved === "dark" ? "Usar tema claro" : "Usar tema escuro"}
                 </MenuItem>
                 {(tenants.data?.tenants.length ?? 0) > 1 && (
                   <MenuItem icon={<Repeat />} onSelect={() => navigate("/escolher-clinica")}>

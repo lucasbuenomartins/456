@@ -1,5 +1,5 @@
 import { MODULES, PERMISSION_MAP, type ModuleKey, type PermissionKey } from "@clinica/shared";
-import { Lock, PackageX } from "lucide-react";
+import { Lock, PackageX } from "../ui/icons";
 import type { ReactNode } from "react";
 import { ButtonLink, EmptyState } from "../ui";
 import { useSession } from "./session";

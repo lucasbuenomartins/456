@@ -1,7 +1,7 @@
 import { MODULES, type ModuleKey } from "@clinica/shared";
 import { useQuery } from "@tanstack/react-query";
 import { clsx } from "clsx";
-import { Cake, CheckCircle2, Circle, ClipboardList, MessageCircle, Search, UserPlus, Users, Wallet, CalendarDays, Boxes, HeartHandshake } from "lucide-react";
+import { Cake, CheckCircle2, Circle, ClipboardList, MessageCircle, Search, UserPlus, Users, Wallet, CalendarDays, Boxes, HeartHandshake } from "../../ui/icons";
 import { Link } from "react-router";
 import { useSession } from "../../app/session";
 import { api } from "../../lib/api";

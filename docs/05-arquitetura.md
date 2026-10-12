@@ -104,7 +104,7 @@ Armazenamento de objetos (S3 compatível) com chave por empresa, sem URL públic
 
 | Interface | Uso | Situação |
 |---|---|---|
-| `MessageSender` (WhatsApp/e-mail/SMS) | Convites, lembretes, recuperação de senha, campanhas com consentimento | Etapa 6 — hoje: link para envio manual |
+| `MessageSender` (WhatsApp/SMS) | Convites, lembretes, recuperação de acesso, campanhas com consentimento | Etapa 6 — hoje: link para envio manual |
 | `PaymentProvider` | Cobrança do SaaS, pagamento no portal | Futuro |
 | `FiscalProvider` | NFS-e | Futuro |
 | `BankReconciliation` | Conciliação bancária | Futuro (conciliação manual na Etapa 4) |

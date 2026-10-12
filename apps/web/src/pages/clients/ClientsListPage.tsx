@@ -1,6 +1,6 @@
 import { keepPreviousData, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { clsx } from "clsx";
-import { Cake, Download, MessageCircle, SlidersHorizontal, Tag, UserPlus, UserRoundX, Users, UserCheck, X } from "lucide-react";
+import { Cake, Download, MessageCircle, SlidersHorizontal, Tag, UserPlus, UserRoundX, Users, UserCheck, X } from "../../ui/icons";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router";
 import { useSession } from "../../app/session";

@@ -1,6 +1,6 @@
 import { autoUpdate, computePosition, flip, offset, shift } from "@floating-ui/react-dom";
 import { clsx } from "clsx";
-import { ArrowLeft, ArrowRight, Sparkles, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, Sparkles, X } from "../ui/icons";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useIsMobile } from "../lib/hooks";

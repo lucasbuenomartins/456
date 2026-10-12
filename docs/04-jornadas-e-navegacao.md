@@ -14,7 +14,7 @@ Legenda: ✅ entregue na Etapa 1 · 🔜 etapa indicada.
 1. `Clientes` → **Novo cliente** (atalho `N`) — ou, na busca sem resultado, **Cadastrar novo cliente** já preenche o que foi digitado.
 2. Nome + telefone (WhatsApp marcado por padrão) → **Salvar cliente** (`Ctrl+Enter`).
 3. Se o telefone/CPF/nome+nascimento já existir: aviso enquanto digita e confirmação explícita ao salvar ("Abrir ficha" ou "É outra pessoa").
-4. Abre a ficha com ações de contato (Ligar, WhatsApp, E-mail).
+4. Abre a ficha com ações de contato (Ligar, WhatsApp). E-mail não é canal de contato.
 
 Proteções: rascunho automático neste aparelho, aviso de sem conexão, idempotência (duplo clique não cria dois), concorrência otimista na edição.
 
