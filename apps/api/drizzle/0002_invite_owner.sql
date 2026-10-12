@@ -1,0 +1,1 @@
+ALTER TABLE "invites" ADD COLUMN "is_owner" boolean DEFAULT false NOT NULL;

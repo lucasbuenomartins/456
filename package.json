@@ -1,0 +1,16 @@
+{
+  "name": "clinica-saas",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@10.28.0",
+  "scripts": {
+    "dev": "pnpm --parallel --filter @clinica/api --filter @clinica/web dev",
+    "build": "pnpm -r build",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test",
+    "db:setup": "bash scripts/db-setup.sh",
+    "db:migrate": "pnpm --filter @clinica/api db:migrate",
+    "db:seed": "pnpm --filter @clinica/api db:seed",
+    "e2e": "pnpm --filter @clinica/e2e test"
+  }
+}
