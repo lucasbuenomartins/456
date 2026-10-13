@@ -18,6 +18,16 @@ e2e               Testes ponta a ponta (desktop, tablet, celular)
 docs              Produto, arquitetura, regras e critérios
 ```
 
+## Instalação automática no Windows
+
+Abra o **PowerShell** e cole:
+
+```powershell
+powershell -ExecutionPolicy Bypass -Command "irm https://raw.githubusercontent.com/lucasbuenomartins/456/claude/saas-clinicas-estetica-gtdb2q/scripts/instalar-windows.ps1 | iex"
+```
+
+O script instala Node.js, Git e Docker Desktop (via `winget`), baixa o projeto em `%USERPROFILE%\lumi`, sobe o banco, cria os dados de demonstração e abre http://localhost:5173. Se o Docker Desktop acabou de ser instalado, reinicie o computador, abra o Docker Desktop uma vez e rode o comando de novo.
+
 ## Como rodar no seu computador
 
 Pré-requisitos: [Node.js 22+](https://nodejs.org), pnpm (`npm install -g pnpm`) e [Docker Desktop](https://www.docker.com/products/docker-desktop/) (para o banco de dados).
