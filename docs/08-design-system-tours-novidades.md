@@ -4,7 +4,7 @@
 
 - **Acolhedora e delicada ("fofa"), sem perder a seriedade**: tons de rosa como cor principal, lilás como destaque pontual, fundo levemente rosado.
 - **Formas arredondadas**: botões em pílula, cantos generosos (14–30 px), ícones Phosphor em estilo *duotone* (traço arredondado com preenchimento suave), logo em coração.
-- **Fonte arredondada**: Nunito, corpo 15–16 px (nunca < 13 px), títulos 24–28 px, números tabulares em valores e datas.
+- **Fonte**: Poppins (geométrica e arredondada), corpo 15–16 px (nunca < 13 px), títulos 24–28 px, números tabulares em valores e datas.
 - **Pouco ruído**: cartões só quando agrupam algo; nada de gráfico sem decisão associada; uma ação primária por tela.
 - **Toque confortável**: alvos ≥ 44 px no celular/tablet; barra de ações fixa no rodapé dos formulários.
 

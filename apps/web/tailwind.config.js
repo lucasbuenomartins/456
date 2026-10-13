@@ -7,8 +7,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        // Fonte arredondada, amigável e legível.
-        sans: ['"Nunito Variable"', "Nunito", "system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
+        // Poppins: geométrica e arredondada, amigável e legível.
+        sans: ["Poppins", "system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
       },
       colors: {
         bg: token("bg"),

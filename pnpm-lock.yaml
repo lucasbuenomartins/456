@@ -68,7 +68,7 @@ importers:
       '@floating-ui/react-dom':
         specifier: 2.1.6
         version: 2.1.6(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
-      '@fontsource-variable/nunito':
+      '@fontsource/poppins':
         specifier: 5.2.7
         version: 5.2.7
       '@phosphor-icons/react':
@@ -639,8 +639,8 @@ packages:
   '@floating-ui/utils@0.2.12':
     resolution: {integrity: sha512-HpCo8tmWzLVad5s2d19EhAz5zqrrQ6s69qd6moPMQvkOuSwDT1YgRfWSVuc4ennqrgv3OHppiOGMQ7oC13yIww==}
 
-  '@fontsource-variable/nunito@5.2.7':
-    resolution: {integrity: sha512-2N8QhatkyKgSUbAGZO2FYLioxA32+RyI1EplVLawbpkGjUeui9Qg9VMrpkCaik1ydjFjfLV+kzQ0cGEsMrMenQ==}
+  '@fontsource/poppins@5.2.7':
+    resolution: {integrity: sha512-6uQyPmseo4FgI97WIhA4yWRlNaoLk4vSDK/PyRwdqqZb5zAEuc+Kunt8JTMcsHYUEGYBtN15SNkMajMdqUSUmg==}
 
   '@jridgewell/gen-mapping@0.3.13':
     resolution: {integrity: sha512-2kkt/7niJ6MgEPxF0bYdQ6etZaA+fQvDcLKckhy1yIQOzaoKjBBjSj63/aLVjYE3qhRt5dvM+uUyfCg6UKCBbA==}
@@ -2907,7 +2907,7 @@ snapshots:
 
   '@floating-ui/utils@0.2.12': {}
 
-  '@fontsource-variable/nunito@5.2.7': {}
+  '@fontsource/poppins@5.2.7': {}
 
   '@jridgewell/gen-mapping@0.3.13':
     dependencies:
