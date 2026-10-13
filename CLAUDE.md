@@ -40,3 +40,22 @@ pnpm e2e                      # Playwright (desktop, tablet, celular)
 ```
 
 Usuários de demonstração (senha `Senha@123`): ana@bellapele.com.br (responsável), carla@ (secretária), julia@ (profissional, 2 clínicas), marcos@ (financeiro), paula@ (comercial), roberto@ (gestor) — todos `@bellapele.com.br`; bianca@aurora.com.br; painel: admin@plataforma.local.
+
+## Ambiente da pessoa usuária
+
+- Windows + VS Code + PowerShell. Projeto em `C:\projetos\456`.
+- Já foi preciso liberar scripts: `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned`.
+- Banco local via Docker Desktop (`docker compose up -d`); o Docker Desktop precisa estar aberto.
+- Explique em passos curtos, um comando por vez, e peça print quando algo der errado.
+
+## Histórico de decisões (em ordem)
+
+1. Planejamento completo em `docs/` e Etapa 1 implementada e testada (54 testes unitários/API + 13 ponta a ponta).
+2. Pedido: "contato por e-mail não" → removido como canal de contato.
+3. Pedido: ícones mais redondinhos, visual fofo, mais tons de rosa, dois temas → paleta rosa/lilás, Phosphor duotone, cantos arredondados, temas claro/escuro/automático.
+4. Pedido: fonte Poppins → aplicada.
+5. Pedido: rodar no próprio computador → `docker-compose.yml`, `scripts/instalar-windows.ps1` e instruções no README.
+
+## Como continuar
+
+Antes de cada etapa: resumir o plano em linguagem simples e confirmar prioridades. Ao concluir: rodar `pnpm typecheck`, `pnpm test` e `pnpm e2e`, informar o que funciona, como foi verificado e o que ainda é demonstração ou depende de integração, e fazer commit na branch de trabalho.
