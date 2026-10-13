@@ -18,18 +18,23 @@ e2e               Testes ponta a ponta (desktop, tablet, celular)
 docs              Produto, arquitetura, regras e critérios
 ```
 
-## Como rodar
+## Como rodar no seu computador
 
-Pré-requisitos: Node 22+, pnpm 10, PostgreSQL 16 local.
+Pré-requisitos: [Node.js 22+](https://nodejs.org), pnpm (`npm install -g pnpm`) e [Docker Desktop](https://www.docker.com/products/docker-desktop/) (para o banco de dados).
 
 ```bash
+git clone https://github.com/lucasbuenomartins/456.git
+cd 456
+git checkout claude/saas-clinicas-estetica-gtdb2q
 pnpm install
-cp .env.example .env
-pnpm db:setup      # cria papéis (clinica_owner, clinica_app) e bancos (dev, teste, e2e) — usa sudo -u postgres
+cp .env.example .env        # no Windows (PowerShell): copy .env.example .env
+docker compose up -d        # sobe o PostgreSQL já com papéis e bancos criados
 pnpm db:migrate
-pnpm db:seed       # dados de demonstração
-pnpm dev           # API em :3333 e web em :5173
+pnpm db:seed                # dados de demonstração
+pnpm dev                    # API em :3333 e web em :5173
 ```
+
+Sem Docker, com PostgreSQL 16 instalado no Linux: use `pnpm db:setup` no lugar de `docker compose up -d`.
 
 Acesse http://localhost:5173. Senha de todos os usuários de demonstração: `Senha@123`.
 
